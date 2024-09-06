@@ -2,13 +2,13 @@
 
     require 'connection.php';
 
-    $phone_number = $_POST['phone_number'];
+    $username = $_POST['username'];
 
     try
     {
-        $query = "select email_id from users where phone_number = ?";
+        $query = "select email_id from users where username = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("s", $phone_number);
+        $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();
 
